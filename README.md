@@ -101,7 +101,7 @@ Now add the below code to <b>Program.cs</b> file. This code needs to be added af
 With the changes mentioned in <b>section 3. </b>, build the container image and push it to the Azure Container Registry. <br />
 Post that deploy this container to the AKS cluster which has Workload Identity enabled. If you have followed the steps mentioned in the documentation which I have referenced in <b>section 1. </b>of this article, then the step for deployment of the application to the AKS is mentioned here - https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity#deploy-the-workload 
 
-Below is the Pod's YAML manifest looks like: <br />
+Below image mentions the placeholder in the Pod's YAML manifest where you will need to mention the name of the container image that you have created: <br />
 ![Pod YAML manifest](images/PodYAMLManifest.png)
 
 Once the application is deployed, check the logs of the application by running the below <b>kubectl</b> command: <br />
