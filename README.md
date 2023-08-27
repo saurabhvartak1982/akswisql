@@ -19,7 +19,7 @@ Once the Azure SQL Database is created, log in to the Azure Portal using the Azu
 Post that open the Azure SQL Database portal page which was created earlier and open the Query Editor. <br />
 ![Query Editor of Azure SQL Database](images/AzureSQLDBQueryEditor.png)<br /><br />
 
-Once this is done, execute the below statements in the Query Editor. The text <b><identity-name></b> is to be replaced with the <b>name</b> of the identity used for creation of the Workload Identity. This name would be already stored in the variable <b>USER_ASSIGNED_IDENTITY_NAME</b> (this variable was set during the AKS cluster configuration as mentioned in section 1. of this article) and then run the below commands. <br />
+Once this is done, execute the below statements in the Query Editor. The text <b>"<identity-name>"</b> is to be replaced with the <b>name</b> of the identity used for creation of the Workload Identity. This name would be already stored in the variable <b>USER_ASSIGNED_IDENTITY_NAME</b> (this variable was set during the AKS cluster configuration as mentioned in section 1. of this article) and then run the below commands. <br />
 
 ```
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
