@@ -9,7 +9,7 @@ The document also mentions setting up of Azure Key Vault and its integration. <b
 ## 2. Create the Azure SQL Database with access enabled for Managed Identity and with the Sample Database data.
 As a second step, we create an Azure SQL Database with AAD authentication enabled. <br />
 When the SQL Database Server is configured for the Azure SQL Database, enable the AAD authentication and set the Azure AD admin. <b>The documentation states that the user selected for the Azure AD admin should be different than the Microsoft account you have used to sign-up for your Azure subscription, so I have done the same - </b> https://learn.microsoft.com/en-us/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Cuserassigned%2Cdotnet%2Cwindowsclient#1-grant-database-access-to-azure-ad-user <br />
-<b>Azure AD auth enabled Azure SQL Database Image here</b><br /><br />
+![Enabling Azure AD auth on Azure SQL Database](images/AzureSQLAADAuth.png) <br /><br />
 
 Also, select the option for the Sample data to be populated as below. The below setting will populate the new database with the data for the same AdventureWorksLT database. <br />
 <b>Sample DB Image here</b><br /><br />
@@ -42,7 +42,7 @@ First, install the below .Net package in the .Net project as below: <br />
 dotnet add package Microsoft.Data.SqlClient
 ```
 
-In the file by the name <b>Program.cs</b>, add the below <b>using<b /> statement: <br />
+In the file by the name <b>Program.cs</b>, add the below <b>using</b> statement: <br />
 
 ```
 using Microsoft.Data.SqlClient;
