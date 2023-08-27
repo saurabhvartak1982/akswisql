@@ -8,16 +8,16 @@ The document also mentions setting up of Azure Key Vault and its integration. <b
 
 ## 2. Create the Azure SQL Database with access enabled for Managed Identity and with the Sample Database data.
 As a second step, we create an Azure SQL Database with AAD authentication enabled. <br />
-When the SQL Database Server is configured for the Azure SQL Database, enable the AAD authentication and set the Azure AD admin. <b>The documentation states that the user selected for the Azure AD admin should be different than the Microsoft account you have used to sign-up for your Azure subscription, so I have done the same - </b> https://learn.microsoft.com/en-us/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Cuserassigned%2Cdotnet%2Cwindowsclient#1-grant-database-access-to-azure-ad-user <br />
+When the SQL Database Server is configured for the Azure SQL Database, enable the AAD authentication and set the Azure AD admin. <b>The documentation states that the user selected for the Azure AD admin should be different than the Microsoft account you have used to sign-up for your Azure subscription, so I have done the same - </b> https://learn.microsoft.com/en-us/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Cuserassigned%2Cdotnet%2Cwindowsclient#1-grant-database-access-to-azure-ad-user <br /> <br />
 ![Enabling Azure AD auth on Azure SQL Database](images/AzureSQLAADAuth.png) <br /><br />
 
 Also, select the option for the Sample data to be populated as below. The below setting will populate the new database with the data for the same AdventureWorksLT database. <br />
-<b>Sample DB Image here</b><br /><br />
+![Sample AdventureWorksLT DB configuration on Azure SQL Database](images/AzureSQLDBAdvWorkSampleDB.png)<br /><br />
 
 Once the Azure SQL Database is created, log in to the Azure Portal using the Azure AD admin credentials which was set during the creation of the Azure SQL Database. <br />
 
 Post that open the Azure SQL Database portal page which was created earlier and open the Query Editor. <br />
-<b>Query Editor Image here</b><br /><br />
+![Query Editor of Azure SQL Database](images/AzureSQLDBQueryEditor.png)<br /><br />
 
 Once this is done, execute the below statements in the Query Editor. The text <b><identity-name></b> is to be replaced with the <b>name</b> of the identity used for creation of the Workload Identity. This name will be stored in the variable <b>USER_ASSIGNED_IDENTITY_NAME</b> (this variable was set during the AKS cluster configuration) and then run the below commands. <br />
 
@@ -100,7 +100,7 @@ With the changes mentioned in <b>section 3. <b/>, build the container image and 
 Post that deploy this container to the AKS cluster which has Workload Identity enabled. If you have followed the steps mentioned in the documentation which I have referenced in <b>section 1. </b>, then the step for deployment of the application to the AKS is mentioned here - https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity#deploy-the-workload 
 
 Below is the Pod's YAML manifest looks like: <br />
-<b>Pod manifest image appears here</b>
+![Pod YAML manifest](images/PodYAMLManifest.png)
 
 Once the application is deployed, check the logs of the application by running the below <b>kubectl<b/> command: <br />
 ```
@@ -109,7 +109,7 @@ kubectl logs quick-start
 
 If the application is successful in accessing the Azure SQL Database, then you should be able to see the sample data of Customer Names along with the other logs. Below are the logs that I am able to see for my application (partial logs): <br />
 
-<b>Pod logs image to appear here</b>
+![Pod logs](images/PodLogs.png)
 
 
 ## Other reference links:
