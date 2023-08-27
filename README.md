@@ -34,7 +34,7 @@ GO
 
 ## 3. Sample application
 For the sample application code, refer to the GitHub repo - https://github.com/Azure/azure-workload-identity <br /><br />
-Download this repo and refer to the .Net sample in the directory - <b>examples/msal-net/akvdotnet</b> <br/><br/>
+Download/clone this repo and refer to the .Net sample in the directory - <b>examples/msal-net/akvdotnet</b> <br/><br/>
 In this downloaded code in the folder <b>akvdotnet</b>, we will be modifying the file by the name <b>Program.cs</b> by adding the code to access the Azure SQL Database. Below are the changes to be done as below: <br />
 
 First, install the below .Net package in the .Net project as below: <br />
