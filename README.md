@@ -104,12 +104,12 @@ Post that deploy this container to the AKS cluster which has Workload Identity e
 Below is the Pod's YAML manifest looks like: <br />
 ![Pod YAML manifest](images/PodYAMLManifest.png)
 
-Once the application is deployed, check the logs of the application by running the below <b>kubectl<b/> command: <br />
+Once the application is deployed, check the logs of the application by running the below <b>kubectl</b> command: <br />
 ```
 kubectl logs quick-start
 ```
 
-If the application is successful in accessing the Azure SQL Database using Workload Identity configured on AKS, then you should be able to see the sample data of Customer Names along with the other logs. Below are the logs that I am able to see for my application (partial logs): <br />
+<b>If the application is successful in accessing the Azure SQL Database using Workload Identity configured on AKS, then you should be able to see the sample data of Customer Names along with the other logs. Below are the logs that I am able to see for my application (partial logs): </b><br />
 
 ![Pod logs](images/PodLogs.png)
 
