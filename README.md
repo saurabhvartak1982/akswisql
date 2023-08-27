@@ -3,7 +3,7 @@ This article explains the steps required in setting up an Azure Kubernetes Servi
 
 ## 1. Setting up an AKS cluster with the Workload Identity enabled
 Set up the AKS cluster with the Workload Identity enabled as mentioned in the document - https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity <br /><br />
-<b>In the above document, dont perform the step related to the Pod deployment. This is because we will be modifying a sample application and then deploy this sample application to this AKS cluster. </b><br /><br />
+<b>In the above document, dont perform the step related to the Pod deployment which is mentioned here - https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity#deploy-the-workload . This is because we will be modifying a sample application and then deploy this sample application to this AKS cluster. </b><br /><br />
 The document also mentions setting up of Azure Key Vault and its integration. <b>It is not necessary for our PoC </b>, however I am not omitting the Azure Key Vault integration set-up since the upstream sample code that we would be using has Azure Key Vault integration code - and I dont intend to delete it. However you may take your own call on this. <br /><br />
 
 ## 2. Create the Azure SQL Database with access enabled for Managed Identity and with the Sample Database data.
