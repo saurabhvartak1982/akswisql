@@ -1,5 +1,5 @@
 # Workload Identity with AKS to access Azure SQL Database using .Net
-This article explains the steps in setting up an Azure Kubernetes Service (AKS) cluster with Workload Identity enabled and running a .Net workload which accesses an Azure SQL Database using this particular identity. <br />
+This article explains the steps required in setting up an Azure Kubernetes Service (AKS) cluster with Workload Identity enabled and running a .Net workload which accesses an Azure SQL Database using this particular identity. <br />
 
 ## 1. Setting up an AKS cluster with the Workload Identity enabled
 Set up the AKS cluster with the Workload Identity enabled as mentioned in the document - https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity <br /><br />
@@ -7,7 +7,7 @@ Set up the AKS cluster with the Workload Identity enabled as mentioned in the do
 The document also mentions setting up of Azure Key Vault and its integration. <b>It is not necessary for our PoC </b>, however I am not omitting the Azure Key Vault integration set-up since the upstream sample code that we would be using has Azure Key Vault integration code - and I dont intend to delete it. However you may take your own call on this.
 
 ## 2. Create the Azure SQL Database with access enabled for Managed Identity and with the Sample Database data.
-First, we create an Azure SQL Database with AAD authentication enabled. <br />
+As a second step, we create an Azure SQL Database with AAD authentication enabled. <br />
 When the SQL Database Server is configured for the Azure SQL Database, enable the AAD authentication and set the Azure AD admin. <b>The documentation states that the user selected for the Azure AD admin should be different than the Microsoft account you have used to sign-up for your Azure subscription, so I have done the same - </b> https://learn.microsoft.com/en-us/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Cuserassigned%2Cdotnet%2Cwindowsclient#1-grant-database-access-to-azure-ad-user <br />
 <b>Azure AD auth enabled Azure SQL Database Image here</b><br /><br />
 
@@ -91,10 +91,28 @@ Now add the below code to <b>Program.cs</b> file. This code needs to be added af
 
                 //**Code to connect to Azure SQL Database ends here**
 ```
+<b>For reference - </b> refer to section 3. of this document to understand the code required to connect to Azure SQL Database- https://learn.microsoft.com/en-us/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Cuserassigned%2Cdotnet%2Cwindowsclient#3-modify-your-code <br />
+
+<b>For reference - </b> refer to this document which has the sample code to fetch the data from Azure SQL Database - https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-dotnet-core?view=azuresql#insert-code-to-query-the-database-in-azure-sql-database <br />
+
+## 4. Deploy the application to the AKS cluster
+With the changes mentioned in <b>section 3. <b/>, build the container image and push it to the Azure Container Registry. <br />
+Post that deploy this container to the AKS cluster which has Workload Identity enabled. If you have followed the steps mentioned in the documentation which I have referenced in <b>section 1. </b>, then the step for deployment of the application to the AKS is mentioned here - https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity#deploy-the-workload 
+
+Below is the Pod's YAML manifest looks like: <br />
+<b>Pod manifest image appears here</b>
+
+Once the application is deployed, check the logs of the application by running the below <b>kubectl<b/> command: <br />
+```
+kubectl logs quick-start
+```
+
+If the application is successful in accessing the Azure SQL Database, then you should be able to see the sample data of Customer Names along with the other logs. Below are the logs that I am able to see for my application (partial logs): <br />
+
+<b>Pod logs image to appear here</b>
 
 
-
-## Reference links:
+## Other reference links:
 Explanation on Workload Identity (old video): 
 https://www.youtube.com/watch?v=wZ0gCJYMUKI 
 
