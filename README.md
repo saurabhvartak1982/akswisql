@@ -1,4 +1,4 @@
-# Workload Identity with AKS to access Azure SQL Database using .Net
+# Access Azure SQL Database using a .Net application running on AKS with Workload Identity
 This article explains the steps required in setting up an Azure Kubernetes Service (AKS) cluster with Workload Identity enabled and running a .Net workload which accesses an Azure SQL Database using this particular identity. <br />
 
 ## 1. Setting up an AKS cluster with the Workload Identity enabled
