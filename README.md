@@ -121,3 +121,4 @@ https://www.youtube.com/watch?v=wZ0gCJYMUKI
 Explanation of Workload Identity on AKS (old video):
 https://www.youtube.com/watch?v=O0ifOBOAe0Q
 
+## **Views are personal. Reader's discretion advised. 
