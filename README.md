@@ -95,6 +95,8 @@ Now add the below code to <b>Program.cs</b> file. This code needs to be added af
 
 <b>For reference - </b> refer to this document which has the sample code to fetch the data from Azure SQL Database - https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-dotnet-core?view=azuresql#insert-code-to-query-the-database-in-azure-sql-database <br />
 
+<b>For reference - </b> refer to this document which lists various Azure Identity client libraries and how these libraries work with the AAD Workload Identity - https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview?tabs=dotnet#azure-identity-client-libraries
+
 <b>In this repo, I have uploaded the modified Program.cs which has all the above mentioned changes.</b><br /><br />
 
 ## 4. Deploy the application to the AKS cluster
