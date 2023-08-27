@@ -48,7 +48,7 @@ In the file by the name <b>Program.cs</b>, add the below <b>using</b> statement:
 using Microsoft.Data.SqlClient;
 ```
 
-Now add the below code to <b>Program.cs</b> file. This code needs to be added after the code where secrets from Azure Key Vault are being fetched:
+Now add the below code to <b>Program.cs</b> file. This code needs to be added after the code where secrets from Azure Key Vault are being fetched. <b>Please remember to mention the SQL Server and Database name of your Azure SQL Database in the SQL connection string</b>:
 ```
                 //**Code to connect to Azure SQL Database starts here**
 
@@ -97,7 +97,7 @@ Now add the below code to <b>Program.cs</b> file. This code needs to be added af
 
 <b>For reference - </b> refer to this document which lists various Azure Identity client libraries and how these libraries work with the AAD Workload Identity - https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview?tabs=dotnet#azure-identity-client-libraries
 
-<b>In this repo, I have uploaded the modified Program.cs which has all the above mentioned changes.</b><br /><br />
+<b>In this repo, I have uploaded the modified Program.cs which has all the above mentioned changes.</b> <br /> <b>Please remember to mention the SQL Server and Database name of your Azure SQL Database in the SQL connection string</b><br /><br />
 
 ## 4. Deploy the application to the AKS cluster
 With the changes mentioned in <b>section 3. </b>, build the container image and push it to the Azure Container Registry. <br />
